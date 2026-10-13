@@ -88,11 +88,11 @@
 
   /* Navigacija */
   .nav{position:sticky;top:0;z-index:50;background:rgba(15,23,42,.88);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid rgba(255,255,255,.07)}
-  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;min-height:68px;padding-top:8px;padding-bottom:8px;gap:16px}
   .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;min-width:0}
   .brand-logo{width:40px;height:40px;border-radius:11px;background:var(--amber);color:var(--navy);display:grid;place-items:center;flex-shrink:0}
   .brand-logo .i{width:22px;height:22px}
-  .brand b{display:block;font-size:.98rem;line-height:1.2;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .brand b{display:block;font-size:.98rem;line-height:1.2;letter-spacing:.01em;white-space:normal;overflow-wrap:anywhere}
   .brand small{display:block;font-size:.74rem;color:var(--amber-l);font-weight:500}
   .nav-links{display:flex;align-items:center;gap:26px}
   .nav-links a.link{color:#cbd5e1;text-decoration:none;font-size:.92rem;font-weight:500;transition:color .2s}
@@ -123,7 +123,7 @@
   .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
   .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:0 20px 40px -24px rgba(15,23,42,.35);transition:transform .25s,box-shadow .25s}
   .card:hover{transform:translateY(-4px);box-shadow:0 26px 48px -22px rgba(15,23,42,.4)}
-  .ico{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px}
+  .ico{width:54px;height:54px;min-width:54px;flex-shrink:0;aspect-ratio:1/1;border-radius:14px;display:grid;place-items:center;margin-bottom:18px}
   .ico .i{width:26px;height:26px}
   .ico.a{background:#fef3c7;color:#b45309}.ico.b{background:#dbeafe;color:#1d4ed8}.ico.c{background:#d1fae5;color:#047857}.ico.d{background:#ede9fe;color:#6d28d9}
   .card h3{margin:0 0 8px;font-size:1.08rem;font-weight:700}
@@ -134,8 +134,8 @@
   .split{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:start}
   .photos{display:grid;gap:22px}
   .photo{margin:0;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 20px 40px -26px rgba(15,23,42,.4)}
-  .photo .frame{position:relative;overflow:hidden;aspect-ratio:16/10;background:var(--navy-3)}
-  .photo img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .photo .frame{position:relative;overflow:hidden;background:var(--navy-3);min-height:180px}
+  .photo img{display:block;width:100%;height:auto;transition:transform .6s}
   .photo:hover img{transform:scale(1.04)}
   .tag{position:absolute;top:14px;left:14px;display:inline-flex;align-items:center;gap:8px;background:rgba(15,23,42,.88);backdrop-filter:blur(8px);color:#fff;font-size:.78rem;font-weight:600;padding:7px 13px;border-radius:10px;border:1px solid rgba(255,255,255,.12)}
   .tag .i{color:var(--amber-l);width:1.05em;height:1.05em}
@@ -143,7 +143,7 @@
   .why{position:sticky;top:100px}
   .feat{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
   .feat:last-child{border-bottom:0}
-  .feat .ico{width:46px;height:46px;border-radius:12px;background:var(--navy);color:var(--amber);margin:0}
+  .feat .ico{width:46px;height:46px;min-width:46px;flex:0 0 46px;aspect-ratio:1/1;border-radius:12px;background:var(--navy);color:var(--amber);margin:0}
   .feat .ico .i{width:22px;height:22px}
   .feat h4{margin:0 0 4px;font-size:1.05rem;font-weight:700}
   .feat p{margin:0;color:var(--muted);font-size:.93rem}
@@ -215,7 +215,11 @@
   }
   @media (max-width:720px){
     .nav-links a.link,.nav .btn{display:none}
-    .brand b{font-size:.9rem}
+    .brand b{font-size:.85rem}
+    .brand small{font-size:.7rem}
+    .nav .wrap{padding-left:16px;padding-right:16px}
+    .brand{gap:10px}
+    .hero h1{overflow-wrap:break-word}
     .hero{padding:64px 0 130px}
     .section{padding:68px 0}
     .grid-4,.steps{grid-template-columns:1fr}
